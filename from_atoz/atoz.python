@@ -1,0 +1,7 @@
+def gimme_the_letters(sp):
+  letter_string = ''
+  start_letter = ord(sp[:1])
+  end_letter = ord(sp[-1:])
+  for char in range(start_letter, end_letter + 1):
+    letter_string += chr(char)
+  return letter_string
