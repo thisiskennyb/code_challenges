@@ -1,39 +1,37 @@
+# Declare an empty set
+# Declare left and right pointer variables
+# Declare an answer variable
+
+# create a while loop with a base case where right is less than length of string - 1
+# while letter in set increase left pointer and remove letters from left
+# add letter to set then increase right pointer by one
+# update answer for max subarray
+
+
+
 def longest_substring(s):
-    left = 0
-    ans = 0
-    subarr_set = set()
+    char_set = set()
 
-    for i in range(len(s)):
-        subarr_set.add(s[i])
-        
-        print(i, "right")
-        # print(left,"left")
-        # print(len(subarr_set), "set")
-        # print(i+1 - left, "i minus left")
-        # print(ans, "ans")
-        print(subarr_set)
-       
-        
+    left = right = ans = 0
 
-        if len(subarr_set) < i+1 - left:
-            ans = max(ans, i+1 - left)
-            if s[left] in subarr_set:  # Check if the element exists in the set before removal
-                subarr_set.remove(s[left])
+    while right < len(s):
+        while s[right] in char_set:
+            char_set.remove(s[left])
             left += 1
-            
+        char_set.add(s[right])
+        ans = max(ans, (right-left)+1)
+        right += 1
+
     return ans
 
-print(longest_substring("pwwkew"))
 
-# def longest_substring(s):
-#     left = ans = 0
-#     seen = {}
 
-#     for right, letter in enumerate(s):
-#         if seen.get(letter, -1) >= left:
-#             left = seen[letter] + 1
-#         ans = max(ans , right - left + 1)
-#         seen[letter] = right
-#     return ans
+
+
+
+
+
+print(longest_substring("abcabcbb"))
+
 
 

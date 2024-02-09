@@ -2,7 +2,7 @@
 # Loop through hash map and map frequency as key to character as value
 # Create variable with the highest frequency
 # Create a loop with a range to highest frequency and build an array using .append
-# return the reversed array
+# return the array
 
 def sort_by_freq(s):
     char_to_freq = {}
@@ -24,6 +24,8 @@ def sort_by_freq(s):
         if i in freq_to_char:
             for j in range(len(freq_to_char[i])):
                 freq_list.append(freq_to_char[i][j]*i)
+
+    print(freq_to_char)
 
     return "".join(freq_list)
 
