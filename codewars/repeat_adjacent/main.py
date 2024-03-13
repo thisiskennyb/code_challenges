@@ -45,7 +45,7 @@ def repeat_adjacent(st):
     sub_string = []
 
     while l < len(st):
-        while r < len(st) and st[l] == st[r]:  # Corrected the condition for the inner while loop
+        while r < len(st) and st[l] == st[r]:
             r += 1
 
         if len(st[l:r]) > 1:
@@ -59,6 +59,10 @@ def repeat_adjacent(st):
             sub_string = []
             l = r
             r = l + 1 if l + 1 <= len(st) else l
+    
+    # Append the last big group if it exists
+    if len(sub_string) > 1:
+        big_groups.append(sub_string)
     
     # Count the number of big groups
     return len(big_groups)
